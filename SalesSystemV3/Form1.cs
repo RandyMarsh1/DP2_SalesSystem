@@ -20,8 +20,8 @@ namespace SalesSystemV3
             InitializeComponent();
 
             // sample data
-            Controller.GetController().Inv.AddItem(new Item(0, 10, 20, "Item 1", "Item 1 Description", "General"));
-            Controller.GetController().Inv.AddItem(new Item(1, 20, 45, "Item 2", "Description of Item 2", "Drugs"));
+            Controller.GetController().Inv.AddItem(new Item(0, "Item 1", "General", 6, 12, "Item 1 Description", 1));
+            Controller.GetController().Inv.AddItem(new Item(1, "Item 2", "Drugs", 20, 50, "Description of Item 2", 1));
 
             // Bind Inventory item list to datasource
             _itemList.DataSource = Controller.GetController().Inv.getItemsList();
@@ -53,7 +53,7 @@ namespace SalesSystemV3
             // Do some error checking
 
             // add entered item into inventory list
-            Controller.GetController().Inv.AddItem( new Item(id, cost, sale, name, descrip, cat));
+            Controller.GetController().Inv.AddItem( new Item(id, name.ToString(), cat, cost, sale, descrip, 1));
 
 
             _itemList.ResetBindings(false); // is ment to update combobox but doesnt?

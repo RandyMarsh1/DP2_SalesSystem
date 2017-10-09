@@ -29,7 +29,12 @@ namespace SalesSystemV3
         // Add new item to Item List
         public void AddItem(Item i)
         {
-            _itemList.Add(GetNextID(), i);
+            _itemList.Add(i.ID, i);
+        }
+
+        public void RemoveItem(Item i)
+        {
+            _itemList.Remove(i.ID);
         }
 
 
