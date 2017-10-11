@@ -28,6 +28,7 @@ namespace SalesSystemV3
         {
             Inv = new Inventory();
             Data = new Database();
+            File = new FileHandler();
 
            
 

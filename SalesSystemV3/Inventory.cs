@@ -40,6 +40,11 @@ namespace SalesSystemV3
         }
 
 
+        public void ClearInventory()
+        {
+            _itemList.Clear();
+        }
+
         // Returns list of items in inventory
         public List<Item> getItemsList()
         {
