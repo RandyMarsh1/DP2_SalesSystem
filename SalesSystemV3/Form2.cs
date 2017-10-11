@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,6 +40,7 @@ namespace SalesSystemV3
             dataGridViewItems.DataSource = _itemList;
             dataGridViewSales.DataSource = _SaleList;
 
+            // Update ID number textboxes
             textBoxID.Text = Controller.GetController().Inv.GetNextID().ToString();
             textBoxsaleID.Text = Controller.GetController().Data.GetNextID().ToString();
             dateTime1.Text = DateTime.Now.ToString();
@@ -49,17 +51,21 @@ namespace SalesSystemV3
         }
 
 
-        /// Inventory Tab ///////////////////////////////////////////////////////////////////////////////////////
+        /// Inventory Tab ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Inventory Tab ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Inventory Tab ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
 
+        // Add Item to inventory button
         private void buttonAddItemInv_Click(object sender, EventArgs e)
-        {
+        {            
             if (String.IsNullOrWhiteSpace(textBoxName.Text))
             {
                 MessageBox.Show(" No Item Name Entered ");
             }
             else if (String.IsNullOrWhiteSpace(comboBoxCatagory.Text))
             {
-                MessageBox.Show(" No Catagory Selected ");
+                MessageBox.Show(" No Category Selected ");
             }
             else if (validateInt(textBoxCost.Text) < 0)
             {
@@ -132,7 +138,7 @@ namespace SalesSystemV3
             }
             else if (String.IsNullOrWhiteSpace(comboBoxeditCat.Text))
             {
-                MessageBox.Show(" Invalid Catagory ");
+                MessageBox.Show(" Invalid Category ");
             }
             else if (validateInt(textBoxeditCost.Text) < 0)
             {
@@ -182,12 +188,13 @@ namespace SalesSystemV3
             _itemList.DataSource = Controller.GetController().Inv.getItemsList();
         }
 
-
-
         /// end Inventory tab
         /// 
-        /// Sales tab  /////////////////////////////////////////////////////////////////////////////////////////////
-
+        /// 
+        /// Sales tab  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Sales tab  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Sales tab  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         private void buttonAddItem_Click(object sender, EventArgs e)
         {
             
@@ -380,6 +387,16 @@ namespace SalesSystemV3
         private void textBoxEditDiscount_TextChanged(object sender, EventArgs e)
         {
             textBoxEditTotal.Text = (toInt(textBoxEditPrice.Text) - toInt(textBoxEditDiscount.Text)).ToString();
+        }
+
+
+
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Run the local help file using the user's default browser
+            // Hotkey is currently CTRL + F1
+            // Need to make sure that the path is from the local directory ONLY!
+            System.Diagnostics.Process.Start("Help.html");
         }
     }
 }

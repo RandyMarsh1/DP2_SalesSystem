@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="description"	content="This file provides documentation in the proper usage of the PHP-SRePS software." />
+<meta name="keywords" 		content="documentation, help, guide, manual" />
+<meta name="author" 		content="SRWZ" />
+<title>Using PHP-SRePS</title>
+<style>
+	body {
+		background-color: #D4D4D4;
+		font-family: 'Roboto';
+		font-size: 22px;
+	}
+	
+	header {
+		background-color: #5A5A5A;
+		border-radius: 7px;
+		color: #FFFFFF;
+		margin: 0.5em;
+		padding: 0.5em;
+		text-align: center;
+	}
+	
+	article {
+		background-color: #ADADAD;
+		border-radius: 7px;
+		color: #000000;
+		margin: 0.5em;
+		padding: 0.5em;
+		text-align: left;
+	}
+
+	h2 {
+		font-size: 1em;
+	}
+	
+	h3 {
+		text-align: left;
+	}
+	
+	hr {
+		border: 0;
+		box-shadow: inset 0 24px 24px -24px #4D6470;
+		height: 24px;
+	}
+	
+	footer {
+		background-color: #333333;
+		border-radius: 7px;
+		clear: both;
+		color: #FFFFFF;
+		font-size: 0.5em;
+		margin: 0.5em;
+		padding: 0.5em;
+		text-align: center;
+	}
+</style>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+
+<body>
+	<!-- Main Content -->
+	<header>
+		<h1>People's Help Pharmacy Sales Reporting and Prediction System</h1>
+		<h2>User Guide</h2>
+	</header>
+	<article>
+		<p>PHP-SRePS has four modules that are included as part of the software that can add, update, and remove sales records, manage the inventory, and provide monthly reports based on predicative analysis.</p>
+		<ol class="index">
+			<h4>Sales Database</h4>
+			<li><a href="#adding">Adding a sales record</a></li>
+			<li><a href="#updating">Updating a sales record</a></li>
+			<li><a href="#removing">Removing a sales record</a></li>
+			<h4>Inventory Management</h4>
+			<li><a href="#add_item">Adding new items</a></li>
+			<li><a href="#update_item">Updating existing items</a></li>
+			<li><a href="#remove_item">Removing existing items</a></li>
+			<h4>Sales Reporting</h4>
+			<li><a href="#search">Searching the database</a></li>
+			<li><a href="#export">Export database</a></li>
+			<h4>Prediction Reporting</h4>
+			<li><a href="#prediction">Prediction</a></li>
+		</ol>
+		<br />
+		<hr />
+		<br />
+		<h1>Sales Database</h2>
+		<h3 id="adding">1. Adding a sales record</h3>
+			<p>To add a sales record, you must first add items into the sale. The total cost of the sale will be automatically calculated based on the quantity of the items included in the sale.</p>
+			<p>New items that were not previously listed in the inventory will be automatically added to the inventory.</p>
+		<br />
+		<br />
+		<h3 id="updating">2. Updating a sales record</h3>
+			<p>To update an existing sales record, simply click anywhere on the row in the database's table display.</p>
+			<p>You can then edit the values in each column individually or use the <b>EDIT SALES RECORD</b> form located to the right of the window.</p>
+			<p>Once you are satisfied with your changes, press the <b>UPDATE SALE</b> button on the <b>EDIT SALES RECORD</b> form.</p>
+			<br />
+			<p><b>Please note that your changes will not be made to the database unless the UPDATE SALE button has been pressed.</b></p>
+		<br />
+		<br />
+		<h3 id="removing">3. Removing a sales record</h3>
+			<p>To remove an existing sales record, simply click anywhere on the row in the database's table display.</p>
+			<p>You must then click on the <b>DELETE SALE</b> button in the <b>EDIT SALES RECORD</b> form located to the right of the window.</p>
+		<br />
+		<hr />
+		<br />
+		<h1>Inventory Management</h2>
+		<h3 id="add_item">4. Adding new items</h3>
+			<p>To add a new product to the inventory, you must use the <b>ADD NEW ITEM TO INVENTORY</b> form located to the right of the window.</p>
+			<p>You must specify its ID number, name, a description (optional), the product's type, and cost/sale prices.</p>
+		<br />
+		<h3 id="update_item">5. Updating existing items</h3>
+			<p>To update an existing product already listed in the inventory, simply click anywhere on the row in the database's table display.</p>
+			<p>You can then edit the values in each column individually or use the <b>EDIT SELECTED ITEM</b> form located to the right of the window.</p>
+			<p>Once you are satisfied with your changes, press the <b>UPDATE</b> button on the <b>EDIT SELECTED ITEM</b> form.</p>
+			<br />
+			<p><b>Please note that your changes will not be made to the database unless the UPDATE button has been pressed.</b></p>
+		<br />
+		<br />
+		<h3 id="remove_item">6. Removing existing items</h3>
+			<p>To remove an existing product, simply click anywhere on the item's row in the database's table display.</p>
+			<p>You must then click on the <b>DELETE</b> button in the <b>EDIT SELECTED ITEM</b> form located to the right of the window.</p>
+		<br />
+		<hr />
+		<br />
+		<h1>Sales Reporting</h2>
+		<h3 id="search">7. Searching the database</h3>
+			<p>Clicking on the box next to the <b>SEARCH</b> label will allow you to search the database for a specific set of sales.</p>
+			<p>You can adjust the parameters of the search by changing the range of the dates to search from (based on a monthly basis only).</p>
+		<br />
+		<h3 id="export">8. Exporting the database</h3>
+			<p>Clicking the <b>EXPORT CSV</b> button will enable you to export the contents of the entire database to a directory of your choice on the local machine.</p>
+			<p>Select the folder in which you wish to export the file to. The software's file handler will convert all the records into a Comma Separated Values (.csv) file that can be accessed by text editors.</p>
+			<br />
+			<p><b>Please note that the exported data will only range from the dates specified in the SEARCH section. If you wish to export the entire database, then leave the former field blank.</b></p>
+		<br />
+		<hr />
+		<br />
+		<h1>Prediction Reporting</h2>
+		<h3 id="prediction">9. Prediction</h3>
+			<p>The system will automatically generate a report based on the sales records of products in the database.</p>
+			<p>If there insufficient data then the system will not be able to generate a report.</p>
+		<br />
+	</article>
+	<!-- Footer -->
+	<footer>
+		<p>People's Help Pharmacy 2017</p>
+	</footer>
+</body>
+</html>
