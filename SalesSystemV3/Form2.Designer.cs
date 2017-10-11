@@ -33,9 +33,12 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabSales = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label49 = new System.Windows.Forms.Label();
             this.dateTime2 = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -151,7 +154,7 @@
             this.dataGridViewItems = new System.Windows.Forms.DataGridView();
             this.IDItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nameitem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Catagory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CostPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -160,7 +163,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPrediction = new System.Windows.Forms.TabPage();
-            this.label49 = new System.Windows.Forms.Label();
+            this.toolTips = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabSales.SuspendLayout();
@@ -180,7 +183,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1284, 24);
@@ -199,14 +203,32 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpToolStripMenuItem1});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
+            this.helpToolStripMenuItem1.Text = "View Help";
+            this.helpToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem1_Click);
             // 
             // tabControl1
             // 
@@ -277,6 +299,16 @@
             this.panel4.Size = new System.Drawing.Size(385, 512);
             this.panel4.TabIndex = 22;
             // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(23, 447);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(341, 31);
+            this.label49.TabIndex = 38;
+            this.label49.Text = "Cant Edit Items in Sale atm";
+            // 
             // dateTime2
             // 
             this.dateTime2.CustomFormat = "d/M/yh:m:tt";
@@ -293,6 +325,7 @@
             this.button3.Size = new System.Drawing.Size(106, 23);
             this.button3.TabIndex = 37;
             this.button3.Text = "Add Item";
+            this.toolTips.SetToolTip(this.button3, "Adds this item to the highlighted sales record.");
             this.button3.UseVisualStyleBackColor = true;
             // 
             // textBox1
@@ -468,27 +501,27 @@
             this.label45.AutoSize = true;
             this.label45.Location = new System.Drawing.Point(137, 382);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(54, 13);
+            this.label45.Size = new System.Drawing.Size(55, 13);
             this.label45.TabIndex = 31;
-            this.label45.Text = "Cost price";
+            this.label45.Text = "Cost Price";
             // 
             // label38
             // 
             this.label38.AutoSize = true;
             this.label38.Location = new System.Drawing.Point(8, 155);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(57, 13);
+            this.label38.Size = new System.Drawing.Size(58, 13);
             this.label38.TabIndex = 30;
-            this.label38.Text = "Total price";
+            this.label38.Text = "Total Price";
             // 
             // label46
             // 
             this.label46.AutoSize = true;
             this.label46.Location = new System.Drawing.Point(138, 408);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(54, 13);
+            this.label46.Size = new System.Drawing.Size(55, 13);
             this.label46.TabIndex = 32;
-            this.label46.Text = "Sale price";
+            this.label46.Text = "Sale Price";
             // 
             // label39
             // 
@@ -524,7 +557,7 @@
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(49, 13);
             this.label48.TabIndex = 33;
-            this.label48.Text = "Catagory";
+            this.label48.Text = "Category";
             // 
             // label41
             // 
@@ -542,6 +575,7 @@
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 10;
             this.button2.Text = "Update Item";
+            this.toolTips.SetToolTip(this.button2, "Updates the item list for this sales record.");
             this.button2.UseVisualStyleBackColor = true;
             // 
             // buttonDeleteSale
@@ -551,6 +585,7 @@
             this.buttonDeleteSale.Size = new System.Drawing.Size(100, 23);
             this.buttonDeleteSale.TabIndex = 9;
             this.buttonDeleteSale.Text = "Delete Sale";
+            this.toolTips.SetToolTip(this.buttonDeleteSale, "Removes this sales record from the database.");
             this.buttonDeleteSale.UseVisualStyleBackColor = true;
             this.buttonDeleteSale.Click += new System.EventHandler(this.buttonDeleteSale_Click);
             // 
@@ -561,6 +596,7 @@
             this.buttonUpdateSale.Size = new System.Drawing.Size(100, 23);
             this.buttonUpdateSale.TabIndex = 7;
             this.buttonUpdateSale.Text = "Update Sale";
+            this.toolTips.SetToolTip(this.buttonUpdateSale, "Updates the details on this sales record.");
             this.buttonUpdateSale.UseVisualStyleBackColor = true;
             this.buttonUpdateSale.Click += new System.EventHandler(this.buttonUpdateSale_Click);
             // 
@@ -571,6 +607,7 @@
             this.buttonRemoveItem.Size = new System.Drawing.Size(100, 23);
             this.buttonRemoveItem.TabIndex = 6;
             this.buttonRemoveItem.Text = "Remove Item";
+            this.toolTips.SetToolTip(this.buttonRemoveItem, "Removes the highlighted item from the sales record.");
             this.buttonRemoveItem.UseVisualStyleBackColor = true;
             // 
             // label14
@@ -588,9 +625,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(16, 256);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 13);
+            this.label9.Size = new System.Drawing.Size(99, 13);
             this.label9.TabIndex = 2;
-            this.label9.Text = "Items in sale";
+            this.label9.Text = "No. of Items in Sale";
             // 
             // panel3
             // 
@@ -661,6 +698,8 @@
             this.buttonRemoveBasket.Size = new System.Drawing.Size(82, 23);
             this.buttonRemoveBasket.TabIndex = 22;
             this.buttonRemoveBasket.Text = "Remove Item";
+            this.toolTips.SetToolTip(this.buttonRemoveBasket, "Removes the highlighted item from the sales record.\nPlease note that this does no" +
+        "t remove the item from the inventory itself.");
             this.buttonRemoveBasket.UseVisualStyleBackColor = true;
             this.buttonRemoveBasket.Click += new System.EventHandler(this.buttonRemoveBasket_Click);
             // 
@@ -703,6 +742,7 @@
             this.buttonAddSale.Size = new System.Drawing.Size(115, 23);
             this.buttonAddSale.TabIndex = 15;
             this.buttonAddSale.Text = "Add Sale Record";
+            this.toolTips.SetToolTip(this.buttonAddSale, "Adds this sales record to the database.");
             this.buttonAddSale.UseVisualStyleBackColor = true;
             this.buttonAddSale.Click += new System.EventHandler(this.buttonAddSale_Click);
             // 
@@ -739,9 +779,9 @@
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(191, 34);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(65, 13);
+            this.label26.Size = new System.Drawing.Size(99, 13);
             this.label26.TabIndex = 19;
-            this.label26.Text = "Items in sale";
+            this.label26.Text = "No. of Items in Sale";
             // 
             // label15
             // 
@@ -757,9 +797,9 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(-2, 158);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(57, 13);
+            this.label23.Size = new System.Drawing.Size(58, 13);
             this.label23.TabIndex = 16;
-            this.label23.Text = "Total price";
+            this.label23.Text = "Total Price";
             // 
             // label22
             // 
@@ -836,6 +876,8 @@
             this.buttonAddItem.Size = new System.Drawing.Size(109, 23);
             this.buttonAddItem.TabIndex = 2;
             this.buttonAddItem.Text = "Add Item to Sale";
+            this.toolTips.SetToolTip(this.buttonAddItem, "Adds this item to the sales record.\nThis item will also be added to the current i" +
+        "nventory list.");
             this.buttonAddItem.UseVisualStyleBackColor = true;
             this.buttonAddItem.Click += new System.EventHandler(this.buttonAddItem_Click);
             // 
@@ -940,18 +982,18 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(18, 149);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(54, 13);
+            this.label18.Size = new System.Drawing.Size(55, 13);
             this.label18.TabIndex = 11;
-            this.label18.Text = "Cost price";
+            this.label18.Text = "Cost Price";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(19, 175);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(54, 13);
+            this.label19.Size = new System.Drawing.Size(55, 13);
             this.label19.TabIndex = 12;
-            this.label19.Text = "Sale price";
+            this.label19.Text = "Sale Price";
             // 
             // label21
             // 
@@ -969,7 +1011,8 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(49, 13);
             this.label20.TabIndex = 13;
-            this.label20.Text = "Catagory";
+            this.label20.Text = "Category";
+            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // dataGridViewSales
             // 
@@ -1072,6 +1115,8 @@
             this.buttonDeleteEdit.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteEdit.TabIndex = 31;
             this.buttonDeleteEdit.Text = "Delete";
+            this.toolTips.SetToolTip(this.buttonDeleteEdit, "Deletes the selected item from the inventory.\nPlease note that the status of a de" +
+        "leted item cannot be rolled back.");
             this.buttonDeleteEdit.UseVisualStyleBackColor = true;
             this.buttonDeleteEdit.Click += new System.EventHandler(this.buttonDeleteEdit_Click);
             // 
@@ -1082,6 +1127,7 @@
             this.buttonEdititem.Size = new System.Drawing.Size(75, 23);
             this.buttonEdititem.TabIndex = 30;
             this.buttonEdititem.Text = "Update";
+            this.toolTips.SetToolTip(this.buttonEdititem, "Updates this product\'s information in the database.");
             this.buttonEdititem.UseVisualStyleBackColor = true;
             this.buttonEdititem.Click += new System.EventHandler(this.buttonEdititem_Click);
             // 
@@ -1152,7 +1198,7 @@
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(49, 13);
             this.label33.TabIndex = 27;
-            this.label33.Text = "Catagory";
+            this.label33.Text = "Category";
             // 
             // textBoxeditSale
             // 
@@ -1256,6 +1302,8 @@
             this.buttonAddItemInv.Size = new System.Drawing.Size(75, 23);
             this.buttonAddItemInv.TabIndex = 6;
             this.buttonAddItemInv.Text = "Add Item";
+            this.toolTips.SetToolTip(this.buttonAddItemInv, "Adds this item to the inventory.\nPlease make sure all fields (including the ID) a" +
+        "re filled out first before confirming.");
             this.buttonAddItemInv.UseVisualStyleBackColor = true;
             this.buttonAddItemInv.Click += new System.EventHandler(this.buttonAddItemInv_Click);
             // 
@@ -1331,7 +1379,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Catagory";
+            this.label4.Text = "Category";
             // 
             // label5
             // 
@@ -1366,7 +1414,7 @@
             this.dataGridViewItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDItem,
             this.Nameitem,
-            this.Catagory,
+            this.Category,
             this.CostPrice,
             this.SalePrice,
             this.Description});
@@ -1393,12 +1441,12 @@
             this.Nameitem.Name = "Nameitem";
             this.Nameitem.Width = 200;
             // 
-            // Catagory
+            // Category
             // 
-            this.Catagory.DataPropertyName = "Catagory";
-            this.Catagory.HeaderText = "Catagory";
-            this.Catagory.Name = "Catagory";
-            this.Catagory.Width = 200;
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            this.Category.Width = 200;
             // 
             // CostPrice
             // 
@@ -1461,15 +1509,13 @@
             this.tabPrediction.Text = "Prediction";
             this.tabPrediction.UseVisualStyleBackColor = true;
             // 
-            // label49
+            // toolTips
             // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(23, 447);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(341, 31);
-            this.label49.TabIndex = 38;
-            this.label49.Text = "Cant Edit Items in Sale atm";
+            this.toolTips.AutoPopDelay = 0;
+            this.toolTips.InitialDelay = 33;
+            this.toolTips.IsBalloon = true;
+            this.toolTips.ReshowDelay = 33;
+            this.toolTips.ShowAlways = true;
             // 
             // Form2
             // 
@@ -1643,5 +1689,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SalePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.ToolTip toolTips;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
     }
 }
