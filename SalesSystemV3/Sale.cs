@@ -18,7 +18,22 @@ namespace SalesSystemV3
         public DateTime date { get; set; }
         public string notes { get; set; }
 
-        // basic sale, no discount or notes
+        public int numItems {
+            get{
+                int n = 0;
+                foreach(Item i in Items)
+                {
+                    n += i.Quantity;
+                }
+                return n;
+            }
+        }
+
+        // add overload constructors 
+        public Sale() { }
+
+
+        // basic sale
         public Sale(List<Item> items)
         {
             ID = Controller.GetController().Data.GetNextID();
@@ -32,7 +47,7 @@ namespace SalesSystemV3
             }
         }
 
-        // add overload constructors 
+        
         
     }
 }

@@ -29,12 +29,50 @@ namespace SalesSystemV3
         }
 
         // need a way of adding multi items in single sale at once
-        public void AddSale(Item i)
+        public Sale AddSale(Item i)
+        {
+            Sale result;
+            List<Item> items = new List<Item>();
+            items.Add(i);
+
+            result = new Sale(items);
+            _sales.Add(GetNextID(), new Sale(items));
+            return result;
+        }
+
+        public Sale AddSale(List<Item> items)
+        {
+            Sale result = new Sale(items);
+            _sales.Add(GetNextID(), result);
+
+            return result;
+        }
+        
+        public void ClearSales()
+        {
+            _sales.Clear();
+        }
+
+        
+        public void AddSale(Item i, string note)
         {
             List<Item> item = new List<Item>();
             item.Add(i);
 
-            _sales.Add(GetNextID(), new Sale(item));
+            Sale s = new Sale(item);
+            s.notes = note;
+
+            _sales.Add(GetNextID(), s);
+        }
+
+        public void AddSale(Sale s)
+        {
+            _sales.Add(GetNextID(), s);
+        }
+
+        public void RemoveSale(Sale s)
+        {
+            _sales.Remove(s.ID);
         }
 
         // Returns list of Sales in database
