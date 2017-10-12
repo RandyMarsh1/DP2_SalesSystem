@@ -68,7 +68,7 @@ namespace SalesSystemV3
         {
             StreamReader reader = new StreamReader(path);
 
-            List<Item> itemlist = new List<Item>();
+            
             string saleline, itemline;
             int itemcount;
 
@@ -78,6 +78,7 @@ namespace SalesSystemV3
             {
                 saleline = reader.ReadLine();
                 itemcount = int.Parse(reader.ReadLine());
+                List<Item> itemlist = new List<Item>();
 
                 if (itemcount > 0)
                 {
@@ -85,18 +86,32 @@ namespace SalesSystemV3
                     {
                         itemline = reader.ReadLine();
                         //List<string> iteminfo = itemline.Split(',').ToList();
-                        itemlist.Add(Controller.GetController().Inv.getItemsList()[int.Parse(itemline)]);
+                        Item item = new Item();
+
+                        List<string> values = itemline.Split(',').ToList();
+
+                        item.ID = int.Parse(values[0]);
+                        item.Name = values[1];
+                        item.Description = values[2];
+                        item.Catagory = values[3];
+                        item.Quantity = int.Parse(values[4]);
+                        item.CostPrice = int.Parse(values[5]);
+                        item.SalePrice = int.Parse(values[6]);
+
+                        itemlist.Add(item);
                     }
                 }
 
-                Sale s = Controller.GetController().Data.AddSale(itemlist);
-
+                Sale s = new Sale(itemlist);
+                
                 List<string> saleinfo = saleline.Split(',').ToList();
                 s.ID = int.Parse(saleinfo[0]);
                 s.date = DateTime.FromBinary(long.Parse(saleinfo[1]));
                 s.totalPrice = int.Parse(saleinfo[2]);
                 s.discount = int.Parse(saleinfo[3]);
                 s.notes = saleinfo[4];
+
+                Controller.GetController().Data.AddSale(s);
             }
             
             reader.Close();
@@ -119,7 +134,9 @@ namespace SalesSystemV3
                     foreach (Item item in sale.Items)
                     {
                         //line = string.Format("{0}", item.ID.ToString());
-                        line = item.ID.ToString();
+                        //line = item.ID.ToString();
+                        line = string.Format("{0},{1},{2},{3},{4},{5},{6}", item.ID.ToString(), item.Name, item.Description, item.Catagory, item.Quantity.ToString(), item.CostPrice.ToString(), item.SalePrice.ToString());
+
                         writer.WriteLine(line);
                     }
                 }
@@ -128,6 +145,20 @@ namespace SalesSystemV3
             writer.Close();
         }
 
-        // Inport, Export CSV
+        public void ItemSaleSave(string path, List<SaleItem> sales)
+        {
+            StreamWriter writer = new StreamWriter(path);
+            string line;
+
+            foreach (SaleItem s in sales)
+            {
+                line = string.Format("{0},{1:dd/MM/yy H:mm:tt},{2},{3},{4},{5},{6}", s.saleID.ToString(), s.saleDate, s.itemName, s.Catagory, s.costPrice.ToString(), s.salePrice.ToString(), s.Qty.ToString());
+                writer.WriteLine(line);
+                         
+            }
+            writer.Close();
+        }
+
+
     }
 }

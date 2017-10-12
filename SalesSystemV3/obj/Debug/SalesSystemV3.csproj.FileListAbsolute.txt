@@ -1,11 +1,33 @@
-C:\Users\lolzi\Google Drive\Development 2\Group Work\SalesSystemV3\bin\Debug\SalesSystemV3.exe.config
-C:\Users\lolzi\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.csprojResolveAssemblyReference.cache
-C:\Users\lolzi\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.Form1.resources
-C:\Users\lolzi\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.Form2.resources
-C:\Users\lolzi\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.csproj.GenerateResource.Cache
-C:\Users\lolzi\Google Drive\Development 2\Group Work\SalesSystemV3\bin\Debug\Help.html
-C:\Users\lolzi\Google Drive\Development 2\Group Work\SalesSystemV3\bin\Debug\SalesSystemV3.exe
-C:\Users\lolzi\Google Drive\Development 2\Group Work\SalesSystemV3\bin\Debug\SalesSystemV3.pdb
-C:\Users\lolzi\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.Properties.Resources.resources
-C:\Users\lolzi\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.exe
-C:\Users\lolzi\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.pdb
+C:/Users/lolzi/Google Drive/Development 2/Group Work/SalesSystemV3/bin/Debug/SalesSystemV3.exe.config
+C:/Users/lolzi/Google Drive/Development 2/Group Work/SalesSystemV3/obj/Debug/SalesSystemV3.csprojResolveAssemblyReference.cache
+C:/Users/lolzi/Google Drive/Development 2/Group Work/SalesSystemV3/obj/Debug/SalesSystemV3.Form1.resources
+C:/Users/lolzi/Google Drive/Development 2/Group Work/SalesSystemV3/obj/Debug/SalesSystemV3.Form2.resources
+C:/Users/lolzi/Google Drive/Development 2/Group Work/SalesSystemV3/obj/Debug/SalesSystemV3.csproj.GenerateResource.Cache
+C:/Users/lolzi/Google Drive/Development 2/Group Work/SalesSystemV3/bin/Debug/Help.html
+C:/Users/lolzi/Google Drive/Development 2/Group Work/SalesSystemV3/bin/Debug/SalesSystemV3.exe
+C:/Users/lolzi/Google Drive/Development 2/Group Work/SalesSystemV3/bin/Debug/SalesSystemV3.pdb
+C:/Users/lolzi/Google Drive/Development 2/Group Work/SalesSystemV3/obj/Debug/SalesSystemV3.Properties.Resources.resources
+C:/Users/lolzi/Google Drive/Development 2/Group Work/SalesSystemV3/obj/Debug/SalesSystemV3.exe
+C:/Users/lolzi/Google Drive/Development 2/Group Work/SalesSystemV3/obj/Debug/SalesSystemV3.pdb
+/Users/zane/Downloads/SalesSystemV3 2/bin/Debug/Help.html
+/Users/zane/Downloads/SalesSystemV3 2/bin/Debug/SalesSystemV3.exe.config
+/Users/zane/Downloads/SalesSystemV3 2/bin/Debug/SalesSystemV3.exe
+/Users/zane/Downloads/SalesSystemV3 2/bin/Debug/SalesSystemV3.pdb
+/Users/zane/Downloads/SalesSystemV3 2/obj/Debug/SalesSystemV3.csprojResolveAssemblyReference.cache
+/Users/zane/Downloads/SalesSystemV3 2/obj/Debug/SalesSystemV3.Form1.resources
+/Users/zane/Downloads/SalesSystemV3 2/obj/Debug/SalesSystemV3.Form2.resources
+/Users/zane/Downloads/SalesSystemV3 2/obj/Debug/SalesSystemV3.Properties.Resources.resources
+/Users/zane/Downloads/SalesSystemV3 2/obj/Debug/SalesSystemV3.csproj.GenerateResource.Cache
+/Users/zane/Downloads/SalesSystemV3 2/obj/Debug/SalesSystemV3.csproj.CoreCompileInputs.cache
+/Users/zane/Downloads/SalesSystemV3 2/obj/Debug/SalesSystemV3.exe
+/Users/zane/Downloads/SalesSystemV3 2/obj/Debug/SalesSystemV3.pdb
+C:\Users\Ryan\Google Drive\Development 2\Group Work\SalesSystemV3\bin\Debug\SalesSystemV3.exe.config
+C:\Users\Ryan\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.exe
+C:\Users\Ryan\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.pdb
+C:\Users\Ryan\Google Drive\Development 2\Group Work\SalesSystemV3\bin\Debug\Help.html
+C:\Users\Ryan\Google Drive\Development 2\Group Work\SalesSystemV3\bin\Debug\SalesSystemV3.exe
+C:\Users\Ryan\Google Drive\Development 2\Group Work\SalesSystemV3\bin\Debug\SalesSystemV3.pdb
+C:\Users\Ryan\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.Form1.resources
+C:\Users\Ryan\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.Form2.resources
+C:\Users\Ryan\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.Properties.Resources.resources
+C:\Users\Ryan\Google Drive\Development 2\Group Work\SalesSystemV3\obj\Debug\SalesSystemV3.csproj.GenerateResource.Cache

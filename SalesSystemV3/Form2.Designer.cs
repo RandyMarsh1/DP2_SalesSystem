@@ -33,6 +33,11 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToCSVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -142,9 +147,13 @@
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tabReports = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridViewReports = new System.Windows.Forms.DataGridView();
+            this.tabPrediction = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
+            this.toolTips = new System.Windows.Forms.ToolTip(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SaleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SaleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,9 +161,6 @@
             this.Qtys = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costPrices = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salePrices = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPrediction = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.toolTips = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabSales.SuspendLayout();
@@ -177,6 +183,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.inventoryToolStripMenuItem,
+            this.reportsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -199,6 +207,7 @@
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
@@ -206,6 +215,45 @@
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // inventoryToolStripMenuItem
+            // 
+            this.inventoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveInventoryToolStripMenuItem,
+            this.openInventoryToolStripMenuItem});
+            this.inventoryToolStripMenuItem.Name = "inventoryToolStripMenuItem";
+            this.inventoryToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.inventoryToolStripMenuItem.Text = "Inventory";
+            // 
+            // saveInventoryToolStripMenuItem
+            // 
+            this.saveInventoryToolStripMenuItem.Name = "saveInventoryToolStripMenuItem";
+            this.saveInventoryToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.saveInventoryToolStripMenuItem.Text = "Save Inventory";
+            this.saveInventoryToolStripMenuItem.Click += new System.EventHandler(this.saveInventoryToolStripMenuItem_Click);
+            // 
+            // openInventoryToolStripMenuItem
+            // 
+            this.openInventoryToolStripMenuItem.Name = "openInventoryToolStripMenuItem";
+            this.openInventoryToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.openInventoryToolStripMenuItem.Text = "Open Inventory";
+            this.openInventoryToolStripMenuItem.Click += new System.EventHandler(this.openInventoryToolStripMenuItem_Click);
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportToCSVToolStripMenuItem});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.reportsToolStripMenuItem.Text = "Reports";
+            // 
+            // exportToCSVToolStripMenuItem
+            // 
+            this.exportToCSVToolStripMenuItem.Name = "exportToCSVToolStripMenuItem";
+            this.exportToCSVToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportToCSVToolStripMenuItem.Text = "Export to CSV";
+            this.exportToCSVToolStripMenuItem.Click += new System.EventHandler(this.exportToCSVToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -840,6 +888,7 @@
             this.Date.DataPropertyName = "date";
             this.Date.HeaderText = "Date";
             this.Date.Name = "Date";
+            this.Date.Width = 130;
             // 
             // numItems
             // 
@@ -1240,7 +1289,7 @@
             // 
             // Category
             // 
-            this.Category.DataPropertyName = "Category";
+            this.Category.DataPropertyName = "Catagory";
             this.Category.HeaderText = "Category";
             this.Category.Name = "Category";
             this.Category.Width = 200;
@@ -1269,7 +1318,6 @@
             // 
             // tabReports
             // 
-            this.tabReports.Controls.Add(this.button1);
             this.tabReports.Controls.Add(this.label12);
             this.tabReports.Controls.Add(this.dataGridViewReports);
             this.tabReports.Location = new System.Drawing.Point(4, 22);
@@ -1279,15 +1327,6 @@
             this.tabReports.TabIndex = 2;
             this.tabReports.Text = "Reports";
             this.tabReports.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1120, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Export to CSV";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -1312,57 +1351,8 @@
             this.salePrices});
             this.dataGridViewReports.Location = new System.Drawing.Point(6, 36);
             this.dataGridViewReports.Name = "dataGridViewReports";
-            this.dataGridViewReports.Size = new System.Drawing.Size(885, 658);
+            this.dataGridViewReports.Size = new System.Drawing.Size(1240, 658);
             this.dataGridViewReports.TabIndex = 2;
-            // 
-            // SaleID
-            // 
-            this.SaleID.DataPropertyName = "saleID";
-            this.SaleID.HeaderText = "Sale ID";
-            this.SaleID.Name = "SaleID";
-            this.SaleID.Width = 50;
-            // 
-            // SaleDate
-            // 
-            this.SaleDate.DataPropertyName = "saleDate";
-            this.SaleDate.HeaderText = "Sale Date";
-            this.SaleDate.Name = "SaleDate";
-            this.SaleDate.Width = 130;
-            // 
-            // ItemName
-            // 
-            this.ItemName.DataPropertyName = "itemName";
-            this.ItemName.HeaderText = "Item";
-            this.ItemName.Name = "ItemName";
-            this.ItemName.Width = 200;
-            // 
-            // ItemCat
-            // 
-            this.ItemCat.DataPropertyName = "Catagory";
-            this.ItemCat.HeaderText = "Catagory";
-            this.ItemCat.Name = "ItemCat";
-            this.ItemCat.Width = 200;
-            // 
-            // Qtys
-            // 
-            this.Qtys.DataPropertyName = "Qty";
-            this.Qtys.HeaderText = "Quantity";
-            this.Qtys.Name = "Qtys";
-            this.Qtys.Width = 50;
-            // 
-            // costPrices
-            // 
-            this.costPrices.DataPropertyName = "costPrice";
-            this.costPrices.HeaderText = "Cost $";
-            this.costPrices.Name = "costPrices";
-            this.costPrices.Width = 80;
-            // 
-            // salePrices
-            // 
-            this.salePrices.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.salePrices.DataPropertyName = "salePrice";
-            this.salePrices.HeaderText = "Sale $";
-            this.salePrices.Name = "salePrices";
             // 
             // tabPrediction
             // 
@@ -1393,6 +1383,59 @@
             this.toolTips.IsBalloon = true;
             this.toolTips.ReshowDelay = 33;
             this.toolTips.ShowAlways = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // SaleID
+            // 
+            this.SaleID.DataPropertyName = "saleID";
+            this.SaleID.HeaderText = "Sale ID";
+            this.SaleID.Name = "SaleID";
+            this.SaleID.Width = 50;
+            // 
+            // SaleDate
+            // 
+            this.SaleDate.DataPropertyName = "saleDate";
+            this.SaleDate.HeaderText = "Sale Date";
+            this.SaleDate.Name = "SaleDate";
+            this.SaleDate.Width = 200;
+            // 
+            // ItemName
+            // 
+            this.ItemName.DataPropertyName = "itemName";
+            this.ItemName.HeaderText = "Item";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Width = 250;
+            // 
+            // ItemCat
+            // 
+            this.ItemCat.DataPropertyName = "Catagory";
+            this.ItemCat.HeaderText = "Catagory";
+            this.ItemCat.Name = "ItemCat";
+            this.ItemCat.Width = 250;
+            // 
+            // Qtys
+            // 
+            this.Qtys.DataPropertyName = "Qty";
+            this.Qtys.HeaderText = "Quantity";
+            this.Qtys.Name = "Qtys";
+            this.Qtys.Width = 50;
+            // 
+            // costPrices
+            // 
+            this.costPrices.DataPropertyName = "costPrice";
+            this.costPrices.HeaderText = "Cost $";
+            this.costPrices.Name = "costPrices";
+            this.costPrices.Width = 80;
+            // 
+            // salePrices
+            // 
+            this.salePrices.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.salePrices.DataPropertyName = "salePrice";
+            this.salePrices.HeaderText = "Sale $";
+            this.salePrices.Name = "salePrices";
             // 
             // Form2
             // 
@@ -1517,12 +1560,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button buttonDeleteEdit;
         private System.Windows.Forms.Button buttonUpdateSale;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numItems;
-        private System.Windows.Forms.DataGridViewTextBoxColumn discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notes;
         private System.Windows.Forms.TextBox textBoxEditDiscount;
         private System.Windows.Forms.RichTextBox richTextBoxEditNotes;
         private System.Windows.Forms.TextBox textBoxEditTotal;
@@ -1542,18 +1579,32 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.DateTimePicker dateTime2;
         private System.Windows.Forms.DateTimePicker dateTime1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nameitem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Catagory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SalePrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.ToolTip toolTips;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dataGridViewReports;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem inventoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveInventoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openInventoryToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nameitem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SalePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numItems;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notes;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportToCSVToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn SaleID;
         private System.Windows.Forms.DataGridViewTextBoxColumn SaleDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
@@ -1561,7 +1612,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Qtys;
         private System.Windows.Forms.DataGridViewTextBoxColumn costPrices;
         private System.Windows.Forms.DataGridViewTextBoxColumn salePrices;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
     }
 }
