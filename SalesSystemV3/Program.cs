@@ -18,7 +18,7 @@ namespace SalesSystemV3
             Application.SetCompatibleTextRenderingDefault(false);
 
             // The test Form
-            Application.Run(new Form1());
+            Application.Run(new Form2());
 
 
         }

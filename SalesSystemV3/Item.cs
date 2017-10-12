@@ -11,25 +11,28 @@ namespace SalesSystemV3
         // Instance of an item, Has ID, name, catagory, cost price, sale price and description
 
         public int ID { get; set; }
+        public string Name { get; set; }
+        public string Catagory { get; set; }
         public int CostPrice { get; set; }
         public int SalePrice { get; set; }
-        public int Quantity { get; set; } 
-        public string Name { get; set; }
+        public int Quantity { get; set; }         
         public string Description { get; set; }
-        public string Catagory { get; set; }
+        
 
         // Default constructor, creates an empty item
         public Item() { }
 
         // Overload Contructor: add new item
-        public Item(int id, int costPrice, int salePrice, string name, string description, string catagory)
+        public Item(int id, string name, string catagory, int costPrice, int salePrice,  string description, int qty)
         {
             ID = id;
-            CostPrice = costPrice;
-            SalePrice = salePrice;
             Name = name;
-            Description = description;
             Catagory = catagory;
+            CostPrice = costPrice;
+            SalePrice = salePrice;            
+            Description = description;
+            Quantity = qty;
+            
         }
 
     }
