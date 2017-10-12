@@ -28,13 +28,13 @@ namespace SalesSystemV3
             InitializeComponent();
 
             // sample data (delete later)
-            Controller.GetController().Inv.AddItem(new Item(0, "Item 1", "General", 6, 12, "Item 1 Description", 1 ));
+            /*Controller.GetController().Inv.AddItem(new Item(0, "Item 1", "General", 6, 12, "Item 1 Description", 1 ));
             Controller.GetController().Inv.AddItem(new Item(1, "Item 2", "Drugs", 20, 50, "Description of Item 2", 1 ));
             Controller.GetController().Data.AddSale(new Item(4, "Item 1", "Drugs", 20, 50, "Description of Item 1", 1), "First Sale!");
             Controller.GetController().Data.AddSale(new Item(2, "Item 2", "Drugs", 10, 15, "Description of Item 2", 1));
-            Controller.GetController().Data.AddSale(new Item(3, "Item 3", "Fun Drugs", 30, 35, "Description of Item 3", 2), "much notes, such sales");
+            Controller.GetController().Data.AddSale(new Item(3, "Item 3", "Fun Drugs", 30, 35, "Description of Item 3", 2), "much notes such sales");
             Controller.GetController().Data.AddSale(new Item(4, "Item 4", "Drugs", 5, 950, "Description of Item 4", 6), "Makin dat money yo!");
-
+            */
 
             // Bind Inventory item list to datasource
             _itemList.DataSource = Controller.GetController().Inv.getItemsList();
@@ -417,36 +417,10 @@ namespace SalesSystemV3
             UpdateReports();
         }
 
-        
 
-
-        // Struct for formating Reports list
-        private struct SaleItem
-        {
-            public int saleID { get;}
-
-            public DateTime saleDate { get; }
-            public String itemName { get; }
-            public String Catagory { get; }            
-            public int costPrice { get; }            
-            public int Qty { get; }
-            public int salePrice { get; }
-
-
-            public SaleItem(Sale s, Item i)
-            {
-                saleID = s.ID;
-                saleDate = s.date;
-                costPrice = i.CostPrice;
-                salePrice = i.SalePrice;
-                itemName = i.Name;
-                Catagory = i.Catagory;
-                Qty = i.Quantity;
-            }
-        }
 
         //  Creates SaleItems list from all sales and items
-        private void UpdateReports() {
+        private List<SaleItem> UpdateReports() {
             List<SaleItem> items = new List<SaleItem>();
 
             foreach (Sale S in Controller.GetController().Data.getSalesList())
@@ -457,6 +431,8 @@ namespace SalesSystemV3
                 }
             }
             dataGridViewReports.DataSource = items;
+
+            return items;
         }
 
 
@@ -469,8 +445,88 @@ namespace SalesSystemV3
             MessageBox.Show("It is estimated you will have " + Controller.GetController().Data.getSalesList().Count.ToString() + " sales tomorrow");
         }
 
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult results = saveFileDialog1.ShowDialog();
+
+            if(results == DialogResult.OK)
+            {
+                string file = saveFileDialog1.FileName;
+                try
+                {
+                    Controller.GetController().File.TransactionsWriteToFile(file);
+                }
+                catch (Exception) { }
+            }
+            
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult results = openFileDialog1.ShowDialog();
+
+            if (results == DialogResult.OK)
+            {
+                string file = openFileDialog1.FileName;
+                try
+                {
+                    Controller.GetController().File.TransactionsReadFromFile(file);
+                }
+                catch (Exception) { }
+
+                _SaleList.DataSource = Controller.GetController().Data.getSalesList();
+            }
+        }
+
+        private void saveInventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult results = saveFileDialog1.ShowDialog();
+
+            if (results == DialogResult.OK)
+            {
+                string file = saveFileDialog1.FileName;
+                try
+                {
+                    Controller.GetController().File.InvWriteToFile(file);
+                }
+                catch (Exception) { }
+
+                
+            }
+        }
+
+        private void openInventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult results = openFileDialog1.ShowDialog();
+
+            if (results == DialogResult.OK)
+            {
+                string file = openFileDialog1.FileName;
+                try
+                {
+                    Controller.GetController().File.InvReadFromFile(file);
+                }
+                catch (Exception) { }
+
+                _itemList.DataSource = Controller.GetController().Inv.getItemsList();
+            }
+        }
 
 
+        private void exportToCSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult results = saveFileDialog1.ShowDialog();
+
+            if (results == DialogResult.OK)
+            {
+                string file = saveFileDialog1.FileName;
+                try
+                {
+                    Controller.GetController().File.ItemSaleSave(file, UpdateReports());
+                }
+                catch (Exception) { }
+            }
+        }
     }
 
 }
