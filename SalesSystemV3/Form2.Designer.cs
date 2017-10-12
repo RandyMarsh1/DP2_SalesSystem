@@ -38,39 +38,21 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabSales = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label49 = new System.Windows.Forms.Label();
             this.dateTime2 = new System.Windows.Forms.DateTimePicker();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label42 = new System.Windows.Forms.Label();
             this.listBox3 = new System.Windows.Forms.ListBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBoxEditDiscount = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.richTextBoxEditNotes = new System.Windows.Forms.RichTextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBoxEditTotal = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBoxEditPrice = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label36 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
             this.textBoxEditSaleID = new System.Windows.Forms.TextBox();
-            this.label44 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.buttonDeleteSale = new System.Windows.Forms.Button();
             this.buttonUpdateSale = new System.Windows.Forms.Button();
-            this.buttonRemoveItem = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -160,9 +142,18 @@
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.tabReports = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
+            this.dataGridViewReports = new System.Windows.Forms.DataGridView();
+            this.SaleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qtys = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costPrices = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salePrices = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPrediction = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.toolTips = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -178,6 +169,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource2)).BeginInit();
             this.tabReports.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReports)).BeginInit();
+            this.tabPrediction.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -241,6 +234,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1260, 726);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.ReportsTabSelected);
             // 
             // tabSales
             // 
@@ -259,55 +253,27 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label49);
             this.panel4.Controls.Add(this.dateTime2);
-            this.panel4.Controls.Add(this.button3);
-            this.panel4.Controls.Add(this.textBox1);
-            this.panel4.Controls.Add(this.label42);
             this.panel4.Controls.Add(this.listBox3);
-            this.panel4.Controls.Add(this.richTextBox1);
             this.panel4.Controls.Add(this.textBoxEditDiscount);
-            this.panel4.Controls.Add(this.textBox2);
             this.panel4.Controls.Add(this.richTextBoxEditNotes);
-            this.panel4.Controls.Add(this.textBox3);
             this.panel4.Controls.Add(this.textBoxEditTotal);
-            this.panel4.Controls.Add(this.comboBox1);
             this.panel4.Controls.Add(this.textBoxEditPrice);
-            this.panel4.Controls.Add(this.comboBox2);
-            this.panel4.Controls.Add(this.comboBox3);
             this.panel4.Controls.Add(this.label36);
-            this.panel4.Controls.Add(this.label43);
             this.panel4.Controls.Add(this.textBoxEditSaleID);
-            this.panel4.Controls.Add(this.label44);
             this.panel4.Controls.Add(this.label37);
-            this.panel4.Controls.Add(this.label45);
             this.panel4.Controls.Add(this.label38);
-            this.panel4.Controls.Add(this.label46);
             this.panel4.Controls.Add(this.label39);
-            this.panel4.Controls.Add(this.label47);
             this.panel4.Controls.Add(this.label40);
-            this.panel4.Controls.Add(this.label48);
             this.panel4.Controls.Add(this.label41);
-            this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.buttonDeleteSale);
             this.panel4.Controls.Add(this.buttonUpdateSale);
-            this.panel4.Controls.Add(this.buttonRemoveItem);
             this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.label9);
-            this.panel4.Location = new System.Drawing.Point(837, 174);
+            this.panel4.Location = new System.Drawing.Point(809, 26);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(385, 512);
+            this.panel4.Size = new System.Drawing.Size(416, 298);
             this.panel4.TabIndex = 22;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(23, 447);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(341, 31);
-            this.label49.TabIndex = 38;
-            this.label49.Text = "Cant Edit Items in Sale atm";
             // 
             // dateTime2
             // 
@@ -318,49 +284,13 @@
             this.dateTime2.Size = new System.Drawing.Size(134, 20);
             this.dateTime2.TabIndex = 25;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(14, 477);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(106, 23);
-            this.button3.TabIndex = 37;
-            this.button3.Text = "Add Item";
-            this.toolTips.SetToolTip(this.button3, "Adds this item to the highlighted sales record.");
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(196, 272);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 36;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(149, 275);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(41, 13);
-            this.label42.TabIndex = 35;
-            this.label42.Text = "Item ID";
-            // 
             // listBox3
             // 
             this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(14, 272);
+            this.listBox3.Location = new System.Drawing.Point(259, 33);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(106, 199);
+            this.listBox3.Size = new System.Drawing.Size(139, 173);
             this.listBox3.TabIndex = 34;
-            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(196, 431);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(168, 40);
-            this.richTextBox1.TabIndex = 28;
-            this.richTextBox1.Text = "";
             // 
             // textBoxEditDiscount
             // 
@@ -370,13 +300,6 @@
             this.textBoxEditDiscount.TabIndex = 26;
             this.textBoxEditDiscount.TextChanged += new System.EventHandler(this.textBoxEditDiscount_TextChanged);
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(196, 405);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(83, 20);
-            this.textBox2.TabIndex = 27;
-            // 
             // richTextBoxEditNotes
             // 
             this.richTextBoxEditNotes.Location = new System.Drawing.Point(69, 178);
@@ -384,13 +307,6 @@
             this.richTextBoxEditNotes.Size = new System.Drawing.Size(179, 33);
             this.richTextBoxEditNotes.TabIndex = 28;
             this.richTextBoxEditNotes.Text = "";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(196, 379);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(83, 20);
-            this.textBox3.TabIndex = 26;
             // 
             // textBoxEditTotal
             // 
@@ -400,22 +316,6 @@
             this.textBoxEditTotal.Size = new System.Drawing.Size(84, 20);
             this.textBoxEditTotal.TabIndex = 27;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "General",
-            "Cold & Flu",
-            "Medicines",
-            "Other",
-            "Pain Relief",
-            "Prescription Drugs",
-            "Vitamins"});
-            this.comboBox1.Location = new System.Drawing.Point(196, 352);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 21);
-            this.comboBox1.TabIndex = 25;
-            // 
             // textBoxEditPrice
             // 
             this.textBoxEditPrice.Location = new System.Drawing.Point(69, 100);
@@ -423,35 +323,6 @@
             this.textBoxEditPrice.ReadOnly = true;
             this.textBoxEditPrice.Size = new System.Drawing.Size(84, 20);
             this.textBoxEditPrice.TabIndex = 25;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.comboBox2.Location = new System.Drawing.Point(196, 327);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(83, 21);
-            this.comboBox2.TabIndex = 24;
-            this.comboBox2.Text = "1";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(196, 298);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(168, 21);
-            this.comboBox3.TabIndex = 23;
-            this.comboBox3.Text = "Enter Item";
             // 
             // label36
             // 
@@ -462,30 +333,12 @@
             this.label36.TabIndex = 33;
             this.label36.Text = "Price";
             // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(132, 301);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(58, 13);
-            this.label43.TabIndex = 29;
-            this.label43.Text = "Item Name";
-            // 
             // textBoxEditSaleID
             // 
             this.textBoxEditSaleID.Location = new System.Drawing.Point(69, 48);
             this.textBoxEditSaleID.Name = "textBoxEditSaleID";
             this.textBoxEditSaleID.Size = new System.Drawing.Size(84, 20);
             this.textBoxEditSaleID.TabIndex = 23;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(144, 330);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(46, 13);
-            this.label44.TabIndex = 30;
-            this.label44.Text = "Quantity";
             // 
             // label37
             // 
@@ -496,15 +349,6 @@
             this.label37.TabIndex = 22;
             this.label37.Text = "Sale ID";
             // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(137, 382);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(55, 13);
-            this.label45.TabIndex = 31;
-            this.label45.Text = "Cost Price";
-            // 
             // label38
             // 
             this.label38.AutoSize = true;
@@ -513,15 +357,6 @@
             this.label38.Size = new System.Drawing.Size(58, 13);
             this.label38.TabIndex = 30;
             this.label38.Text = "Total Price";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(138, 408);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(55, 13);
-            this.label46.TabIndex = 32;
-            this.label46.Text = "Sale Price";
             // 
             // label39
             // 
@@ -532,15 +367,6 @@
             this.label39.TabIndex = 29;
             this.label39.Text = "Date";
             // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(132, 434);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(60, 13);
-            this.label47.TabIndex = 34;
-            this.label47.Text = "Description";
-            // 
             // label40
             // 
             this.label40.AutoSize = true;
@@ -549,15 +375,6 @@
             this.label40.Size = new System.Drawing.Size(35, 13);
             this.label40.TabIndex = 32;
             this.label40.Text = "Notes";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(142, 356);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(49, 13);
-            this.label48.TabIndex = 33;
-            this.label48.Text = "Category";
             // 
             // label41
             // 
@@ -568,21 +385,11 @@
             this.label41.TabIndex = 31;
             this.label41.Text = "Discount";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(264, 477);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Update Item";
-            this.toolTips.SetToolTip(this.button2, "Updates the item list for this sales record.");
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // buttonDeleteSale
             // 
-            this.buttonDeleteSale.Location = new System.Drawing.Point(264, 155);
+            this.buttonDeleteSale.Location = new System.Drawing.Point(102, 260);
             this.buttonDeleteSale.Name = "buttonDeleteSale";
-            this.buttonDeleteSale.Size = new System.Drawing.Size(100, 23);
+            this.buttonDeleteSale.Size = new System.Drawing.Size(134, 23);
             this.buttonDeleteSale.TabIndex = 9;
             this.buttonDeleteSale.Text = "Delete Sale";
             this.toolTips.SetToolTip(this.buttonDeleteSale, "Removes this sales record from the database.");
@@ -591,24 +398,14 @@
             // 
             // buttonUpdateSale
             // 
-            this.buttonUpdateSale.Location = new System.Drawing.Point(264, 188);
+            this.buttonUpdateSale.Location = new System.Drawing.Point(259, 260);
             this.buttonUpdateSale.Name = "buttonUpdateSale";
-            this.buttonUpdateSale.Size = new System.Drawing.Size(100, 23);
+            this.buttonUpdateSale.Size = new System.Drawing.Size(134, 23);
             this.buttonUpdateSale.TabIndex = 7;
             this.buttonUpdateSale.Text = "Update Sale";
             this.toolTips.SetToolTip(this.buttonUpdateSale, "Updates the details on this sales record.");
             this.buttonUpdateSale.UseVisualStyleBackColor = true;
             this.buttonUpdateSale.Click += new System.EventHandler(this.buttonUpdateSale_Click);
-            // 
-            // buttonRemoveItem
-            // 
-            this.buttonRemoveItem.Location = new System.Drawing.Point(137, 477);
-            this.buttonRemoveItem.Name = "buttonRemoveItem";
-            this.buttonRemoveItem.Size = new System.Drawing.Size(100, 23);
-            this.buttonRemoveItem.TabIndex = 6;
-            this.buttonRemoveItem.Text = "Remove Item";
-            this.toolTips.SetToolTip(this.buttonRemoveItem, "Removes the highlighted item from the sales record.");
-            this.buttonRemoveItem.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
@@ -623,7 +420,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 256);
+            this.label9.Location = new System.Drawing.Point(261, 17);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 13);
             this.label9.TabIndex = 2;
@@ -653,7 +450,7 @@
             this.panel3.Controls.Add(this.label24);
             this.panel3.Location = new System.Drawing.Point(307, 24);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(502, 300);
+            this.panel3.Size = new System.Drawing.Size(469, 300);
             this.panel3.TabIndex = 21;
             // 
             // dateTime1
@@ -677,7 +474,7 @@
             // Qty
             // 
             this.Qty.AutoSize = true;
-            this.Qty.Location = new System.Drawing.Point(298, 34);
+            this.Qty.Location = new System.Drawing.Point(300, 37);
             this.Qty.Name = "Qty";
             this.Qty.Size = new System.Drawing.Size(23, 13);
             this.Qty.TabIndex = 25;
@@ -737,7 +534,7 @@
             // 
             // buttonAddSale
             // 
-            this.buttonAddSale.Location = new System.Drawing.Point(363, 196);
+            this.buttonAddSale.Location = new System.Drawing.Point(330, 262);
             this.buttonAddSale.Name = "buttonAddSale";
             this.buttonAddSale.Size = new System.Drawing.Size(115, 23);
             this.buttonAddSale.TabIndex = 15;
@@ -777,11 +574,11 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(191, 34);
+            this.label26.Location = new System.Drawing.Point(196, 36);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(99, 13);
+            this.label26.Size = new System.Drawing.Size(67, 13);
             this.label26.TabIndex = 19;
-            this.label26.Text = "No. of Items in Sale";
+            this.label26.Text = "Items in Sale";
             // 
             // label15
             // 
@@ -871,7 +668,7 @@
             // 
             // buttonAddItem
             // 
-            this.buttonAddItem.Location = new System.Drawing.Point(136, 251);
+            this.buttonAddItem.Location = new System.Drawing.Point(136, 262);
             this.buttonAddItem.Name = "buttonAddItem";
             this.buttonAddItem.Size = new System.Drawing.Size(109, 23);
             this.buttonAddItem.TabIndex = 2;
@@ -955,9 +752,9 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(12, 12);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(144, 20);
+            this.label10.Size = new System.Drawing.Size(164, 20);
             this.label10.TabIndex = 3;
-            this.label10.Text = "Add Item to Sale";
+            this.label10.Text = "Add Item to Basket";
             // 
             // label16
             // 
@@ -1012,7 +809,6 @@
             this.label20.Size = new System.Drawing.Size(49, 13);
             this.label20.TabIndex = 13;
             this.label20.Text = "Category";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // dataGridViewSales
             // 
@@ -1028,7 +824,7 @@
             this.dataGridViewSales.DataSource = this.SalesbindingSource;
             this.dataGridViewSales.Location = new System.Drawing.Point(16, 332);
             this.dataGridViewSales.Name = "dataGridViewSales";
-            this.dataGridViewSales.Size = new System.Drawing.Size(793, 354);
+            this.dataGridViewSales.Size = new System.Drawing.Size(1209, 354);
             this.dataGridViewSales.TabIndex = 0;
             this.dataGridViewSales.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewSales_CellContentClick);
             // 
@@ -1260,9 +1056,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 22);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 15);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 13);
+            this.label7.Size = new System.Drawing.Size(189, 20);
             this.label7.TabIndex = 15;
             this.label7.Text = "Current Item Inventory";
             // 
@@ -1472,8 +1269,9 @@
             // 
             // tabReports
             // 
-            this.tabReports.Controls.Add(this.label13);
+            this.tabReports.Controls.Add(this.button1);
             this.tabReports.Controls.Add(this.label12);
+            this.tabReports.Controls.Add(this.dataGridViewReports);
             this.tabReports.Location = new System.Drawing.Point(4, 22);
             this.tabReports.Name = "tabReports";
             this.tabReports.Padding = new System.Windows.Forms.Padding(3);
@@ -1482,32 +1280,111 @@
             this.tabReports.Text = "Reports";
             this.tabReports.UseVisualStyleBackColor = true;
             // 
-            // label13
+            // button1
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(337, 117);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 13);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Export CSV";
+            this.button1.Location = new System.Drawing.Point(1120, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Export to CSV";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(18, 51);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 13);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Search";
+            this.label12.Size = new System.Drawing.Size(95, 20);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Item Sales";
+            // 
+            // dataGridViewReports
+            // 
+            this.dataGridViewReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReports.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SaleID,
+            this.SaleDate,
+            this.ItemName,
+            this.ItemCat,
+            this.Qtys,
+            this.costPrices,
+            this.salePrices});
+            this.dataGridViewReports.Location = new System.Drawing.Point(6, 36);
+            this.dataGridViewReports.Name = "dataGridViewReports";
+            this.dataGridViewReports.Size = new System.Drawing.Size(885, 658);
+            this.dataGridViewReports.TabIndex = 2;
+            // 
+            // SaleID
+            // 
+            this.SaleID.DataPropertyName = "saleID";
+            this.SaleID.HeaderText = "Sale ID";
+            this.SaleID.Name = "SaleID";
+            this.SaleID.Width = 50;
+            // 
+            // SaleDate
+            // 
+            this.SaleDate.DataPropertyName = "saleDate";
+            this.SaleDate.HeaderText = "Sale Date";
+            this.SaleDate.Name = "SaleDate";
+            this.SaleDate.Width = 130;
+            // 
+            // ItemName
+            // 
+            this.ItemName.DataPropertyName = "itemName";
+            this.ItemName.HeaderText = "Item";
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Width = 200;
+            // 
+            // ItemCat
+            // 
+            this.ItemCat.DataPropertyName = "Catagory";
+            this.ItemCat.HeaderText = "Catagory";
+            this.ItemCat.Name = "ItemCat";
+            this.ItemCat.Width = 200;
+            // 
+            // Qtys
+            // 
+            this.Qtys.DataPropertyName = "Qty";
+            this.Qtys.HeaderText = "Quantity";
+            this.Qtys.Name = "Qtys";
+            this.Qtys.Width = 50;
+            // 
+            // costPrices
+            // 
+            this.costPrices.DataPropertyName = "costPrice";
+            this.costPrices.HeaderText = "Cost $";
+            this.costPrices.Name = "costPrices";
+            this.costPrices.Width = 80;
+            // 
+            // salePrices
+            // 
+            this.salePrices.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.salePrices.DataPropertyName = "salePrice";
+            this.salePrices.HeaderText = "Sale $";
+            this.salePrices.Name = "salePrices";
             // 
             // tabPrediction
             // 
+            this.tabPrediction.Controls.Add(this.button4);
+            this.tabPrediction.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPrediction.Location = new System.Drawing.Point(4, 22);
             this.tabPrediction.Name = "tabPrediction";
             this.tabPrediction.Size = new System.Drawing.Size(1252, 700);
             this.tabPrediction.TabIndex = 3;
             this.tabPrediction.Text = "Prediction";
             this.tabPrediction.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(346, 278);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(615, 120);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Make Prediction";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // toolTips
             // 
@@ -1549,6 +1426,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource2)).EndInit();
             this.tabReports.ResumeLayout(false);
             this.tabReports.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReports)).EndInit();
+            this.tabPrediction.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1589,8 +1468,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
@@ -1640,7 +1517,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button buttonDeleteEdit;
         private System.Windows.Forms.Button buttonUpdateSale;
-        private System.Windows.Forms.Button buttonRemoveItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn numItems;
@@ -1658,28 +1534,12 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonDeleteSale;
         private System.Windows.Forms.Button buttonRemoveBasket;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label Qty;
         private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label48;
         private System.Windows.Forms.DateTimePicker dateTime2;
         private System.Windows.Forms.DateTimePicker dateTime1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDItem;
@@ -1688,10 +1548,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CostPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.Label label49;
         private System.Windows.Forms.ToolTip toolTips;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridView dataGridViewReports;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SaleID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SaleDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemCat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qtys;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costPrices;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salePrices;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button4;
     }
 }
