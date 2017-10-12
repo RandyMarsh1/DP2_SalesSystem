@@ -27,7 +27,9 @@ namespace SalesSystemV3
         private Controller()
         {
             Inv = new Inventory();
+            File = new FileHandler();
             Data = new Database();          
+
 
         }
 

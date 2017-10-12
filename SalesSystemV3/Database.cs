@@ -29,12 +29,28 @@ namespace SalesSystemV3
         }
 
         // need a way of adding multi items in single sale at once
-        public void AddSale(Item i)
+        public Sale AddSale(Item i)
         {
-            List<Item> item = new List<Item>();
-            item.Add(i);
+            Sale result;
+            List<Item> items = new List<Item>();
+            items.Add(i);
 
-            _sales.Add(GetNextID(), new Sale(item));
+            result = new Sale(items);
+            _sales.Add(GetNextID(), new Sale(items));
+            return result;
+        }
+
+        public Sale AddSale(List<Item> items)
+        {
+            Sale result = new Sale(items);
+            _sales.Add(GetNextID(), result);
+
+            return result;
+        }
+        
+        public void ClearSales()
+        {
+            _sales.Clear();
         }
 
         
