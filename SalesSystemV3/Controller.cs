@@ -27,9 +27,7 @@ namespace SalesSystemV3
         private Controller()
         {
             Inv = new Inventory();
-            Data = new Database();
-
-           
+            Data = new Database();          
 
         }
 
@@ -38,8 +36,6 @@ namespace SalesSystemV3
         {
             return _instance;
         }
- 
-
-
+        
     }
 }

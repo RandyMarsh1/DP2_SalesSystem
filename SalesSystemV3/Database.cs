@@ -54,6 +54,11 @@ namespace SalesSystemV3
             _sales.Add(GetNextID(), s);
         }
 
+        public void RemoveSale(Sale s)
+        {
+            _sales.Remove(s.ID);
+        }
+
         // Returns list of Sales in database
         public List<Sale> getSalesList()
         {

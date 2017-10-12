@@ -18,7 +18,11 @@ namespace SalesSystemV3
         private BindingSource _SaleList = new BindingSource();
 
         private List<Item> CurrentItems = new List<Item>();
+        private Sale currentSale;
         
+
+        // Constructor
+        // setup reference to database and inventory lists
         public Form2()
         {
             InitializeComponent();
@@ -26,11 +30,10 @@ namespace SalesSystemV3
             // sample data (delete later)
             Controller.GetController().Inv.AddItem(new Item(0, "Item 1", "General", 6, 12, "Item 1 Description", 1 ));
             Controller.GetController().Inv.AddItem(new Item(1, "Item 2", "Drugs", 20, 50, "Description of Item 2", 1 ));
-
-            Controller.GetController().Data.AddSale(new Item(1, "Item 1", "Drugs", 20, 50, "Description of Item 1", 1), "Note: sale 1");
-            Controller.GetController().Data.AddSale(new Item(1, "Item 2", "Drugs", 10, 15, "Description of Item 2", 1));
-            Controller.GetController().Data.AddSale(new Item(1, "Item 3", "Drugs", 30, 35, "Description of Item 3", 2), "note this note");
-            Controller.GetController().Data.AddSale(new Item(1, "Item 4", "Drugs", 5, 40, "Description of Item 4", 6), "Makin dat money yo!");
+            Controller.GetController().Data.AddSale(new Item(4, "Item 1", "Drugs", 20, 50, "Description of Item 1", 1), "First Sale!");
+            Controller.GetController().Data.AddSale(new Item(2, "Item 2", "Drugs", 10, 15, "Description of Item 2", 1));
+            Controller.GetController().Data.AddSale(new Item(3, "Item 3", "Fun Drugs", 30, 35, "Description of Item 3", 2), "much notes, such sales");
+            Controller.GetController().Data.AddSale(new Item(4, "Item 4", "Drugs", 5, 950, "Description of Item 4", 6), "Makin dat money yo!");
 
 
             // Bind Inventory item list to datasource
@@ -51,14 +54,25 @@ namespace SalesSystemV3
         }
 
 
-        /// Inventory Tab ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// Inventory Tab ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// Inventory Tab ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Run the local help file using the user's default browser
+            // Hotkey is currently CTRL + F1
+            // Need to make sure that the path is from the local directory ONLY!
+            System.Diagnostics.Process.Start("Help.html");
+        }
 
-        // Add Item to inventory button
-        private void buttonAddItemInv_Click(object sender, EventArgs e)
-        {            
+
+        
+            /// Inventory Tab ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// Inventory Tab ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// Inventory Tab ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            // Add Item to inventory button
+            private void buttonAddItemInv_Click(object sender, EventArgs e)
+        {        
+            // Error check fields
             if (String.IsNullOrWhiteSpace(textBoxName.Text))
             {
                 MessageBox.Show(" No Item Name Entered ");
@@ -80,6 +94,7 @@ namespace SalesSystemV3
 
                 try
                 {
+                    // Get data from fields
                     int id = Convert.ToInt16(textBoxID.Text);
                     string name = textBoxName.Text;
                     string description = richTextBoxDescription.Text;
@@ -95,28 +110,23 @@ namespace SalesSystemV3
                     MessageBox.Show(ex.Message);
                 }
 
-                //rebind to update
+                //rebind to update datagridview
                 _itemList.DataSource = Controller.GetController().Inv.getItemsList();
 
-                // get next id
+                // Update ID to next
                 textBoxID.Text = Controller.GetController().Inv.GetNextID().ToString();
             }
 
         }
-
-        private void buttonUpdate_Click(object sender, EventArgs e)
-        {
-
-            _itemList.DataSource = Controller.GetController().Inv.getItemsList();
-        }
+        
 
         // Seleted Item changed, auto fill info boxes
         private void comboBoxItemslist_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Item I = comboBoxItemslist.SelectedItem as Item;
-
             try
             {
+                Item I = comboBoxItemslist.SelectedItem as Item;
+
                 textBoxitemID.Text = I.ID.ToString();
                 comboBoxItemCat.Text = I.Catagory;
                 textBoxCostsale.Text = I.CostPrice.ToString();
@@ -125,16 +135,17 @@ namespace SalesSystemV3
             }catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-
+        // 
         private void buttonEdititem_Click(object sender, EventArgs e)
         {
+            // Error check input data
             if (validateInt(textBoxeditID.Text) < 0)
             {
                 MessageBox.Show(" Invalid ID ");
             }
             else if (String.IsNullOrWhiteSpace(textBoxeditName.Text))
             {
-                MessageBox.Show( "Invalid Name ");
+                MessageBox.Show("Invalid Name ");
             }
             else if (String.IsNullOrWhiteSpace(comboBoxeditCat.Text))
             {
@@ -149,9 +160,9 @@ namespace SalesSystemV3
                 MessageBox.Show(" Invalid Sale Price Entered ");
             }
             else
-
+            {
                 try
-                {
+                {   // Create new item, add info
                     Item i = (Item)dataGridViewItems.CurrentRow.DataBoundItem;
                     i.ID = toInt(textBoxeditID.Text);
                     i.Name = textBoxeditName.Text;
@@ -164,9 +175,10 @@ namespace SalesSystemV3
 
                 }
                 catch (Exception) { }
+            }
         }
 
-
+        // Selected row on Inventory datagridview changed, update selected item in edit panel
         private void dataGridViewItems_RowEnter(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
@@ -182,6 +194,7 @@ namespace SalesSystemV3
             catch (Exception) { }
         }
 
+        // Delete item in currently selected inventory row
         private void buttonDeleteEdit_Click(object sender, EventArgs e)
         {
             Controller.GetController().Inv.RemoveItem((Item)dataGridViewItems.CurrentRow.DataBoundItem);
@@ -195,6 +208,7 @@ namespace SalesSystemV3
         /// Sales tab  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// Sales tab  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
         
+        // Add a item to sale basket
         private void buttonAddItem_Click(object sender, EventArgs e)
         {
             
@@ -221,15 +235,14 @@ namespace SalesSystemV3
                 textBoxID.Text = Controller.GetController().Inv.GetNextID().ToString();
 
             }
-
-
+            
+            // calc total price of all items & Qtys in basket
             int price = 0;
-            foreach (Item I in CurrentItems)
-            {
+            foreach (Item I in CurrentItems) {
                 price = price + (I.SalePrice * I.Quantity);
             }
                        
-
+            // Reset/clear sale panel textboxes
             listBox1.DataSource = null;
             listBox1.DataSource = CurrentItems;
             listBox1.DisplayMember = "Name";
@@ -243,14 +256,17 @@ namespace SalesSystemV3
             
         }
 
+        // Add current sale to database
         private void buttonAddSale_Click(object sender, EventArgs e)
         {
-            if (toInt(textBoxPrice.Text) <= 0)
+            // Check theres items in the sale
+            if (CurrentItems.Count == 0)
             {
                 MessageBox.Show(" No Items in Sale ");
             }
             else
             {
+                // Create new Sale object and add required info from fields
                 Sale s = new Sale();
                 try
                 {
@@ -265,12 +281,9 @@ namespace SalesSystemV3
                     Controller.GetController().Data.AddSale(s);
 
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                catch (Exception ex)  {MessageBox.Show(ex.Message); }
 
-
+                // Update saleslist
                 _SaleList.DataSource = Controller.GetController().Data.getSalesList();
 
                 // clear boxes
@@ -292,13 +305,16 @@ namespace SalesSystemV3
         }
 
        
-        // Show selected sale
+        // Selected item in grid view changed, Show selected sales info in edit panel
         private void dataGridViewSales_CellContentClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
+                // get instance of item selected
                 Sale s = (Sale)dataGridViewSales.CurrentRow.DataBoundItem;
+                currentSale = s;
 
+                // display in edit panel textboxes
                 textBoxEditSaleID.Text = s.ID.ToString();
                 dateTime2.Value = s.date;
 
@@ -311,18 +327,20 @@ namespace SalesSystemV3
                 listBox3.DataSource = s.Items;
                 listBox3.DisplayMember = "Name";
 
+                
+
             }
             catch (Exception) { }
         }
 
-        // Returns 0 if invalid
+        // Convert string to int, Returns 0 if invalid
         private int toInt(string text) {
             int i = 0;
             if(!Int32.TryParse(text, out i))  { i = 0; }
             return i;
         }
 
-        // Returns -1 if invalid
+        // Convert string to int, Returns -1 if invalid
         private int validateInt(string text)
         {
             int i = 0;
@@ -330,16 +348,13 @@ namespace SalesSystemV3
             return i;
         }
 
-        private void dataGridViewBasket_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        // Remove Item from basket button
         private void buttonRemoveBasket_Click(object sender, EventArgs e)
         {
             Item I = (Item)listBox1.SelectedItem;
             CurrentItems.Remove(I);
 
+            // Reset/clear textboxes
             listBox1.DataSource = null;
             listBox1.DataSource = CurrentItems;
             listBox1.DisplayMember = "Name";
@@ -348,19 +363,16 @@ namespace SalesSystemV3
             listBox2.DisplayMember = "Quantity";
         }
 
-        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Item I = (Item)listBox3.SelectedItem;
-
-
-        }
-
+        
+        // Delete currently selected sale from database
         private void buttonDeleteSale_Click(object sender, EventArgs e)
         {
-            dataGridViewSales.Rows.Remove(dataGridViewSales.CurrentRow);
+            Controller.GetController().Data.RemoveSale((Sale)dataGridViewSales.CurrentRow.DataBoundItem);
+            _SaleList.DataSource = Controller.GetController().Data.getSalesList();
 
         }
 
+        // Update Sale data after edit
         private void buttonUpdateSale_Click(object sender, EventArgs e)
         {
             Sale s = (Sale)dataGridViewSales.CurrentRow.DataBoundItem;
@@ -378,25 +390,87 @@ namespace SalesSystemV3
             dataGridViewSales.Refresh();
         }
 
+        // Recalculate total price with new discount applied
         private void textBoxDiscount_TextChanged(object sender, EventArgs e)
         {
             textBoxTotal.Text = (toInt(textBoxPrice.Text) - toInt(textBoxDiscount.Text)).ToString();
-
         }
 
+        // Recalculate discount with new total entered
         private void textBoxEditDiscount_TextChanged(object sender, EventArgs e)
         {
             textBoxEditTotal.Text = (toInt(textBoxEditPrice.Text) - toInt(textBoxEditDiscount.Text)).ToString();
         }
 
 
+        /// end Sales tab
+        /// 
+        /// 
+        /// Reports tab  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Reports tab  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Reports tab  ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        private void helpToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            // Run the local help file using the user's default browser
-            // Hotkey is currently CTRL + F1
-            // Need to make sure that the path is from the local directory ONLY!
-            System.Diagnostics.Process.Start("Help.html");
+        // tab has changed update stuff
+        private void ReportsTabSelected(Object sender, TabControlCancelEventArgs e) {
+            _SaleList.DataSource = Controller.GetController().Data.getSalesList();
+
+            UpdateReports();
         }
+
+        
+
+
+        // Struct for formating Reports list
+        private struct SaleItem
+        {
+            public int saleID { get;}
+
+            public DateTime saleDate { get; }
+            public String itemName { get; }
+            public String Catagory { get; }            
+            public int costPrice { get; }            
+            public int Qty { get; }
+            public int salePrice { get; }
+
+
+            public SaleItem(Sale s, Item i)
+            {
+                saleID = s.ID;
+                saleDate = s.date;
+                costPrice = i.CostPrice;
+                salePrice = i.SalePrice;
+                itemName = i.Name;
+                Catagory = i.Catagory;
+                Qty = i.Quantity;
+            }
+        }
+
+        //  Creates SaleItems list from all sales and items
+        private void UpdateReports() {
+            List<SaleItem> items = new List<SaleItem>();
+
+            foreach (Sale S in Controller.GetController().Data.getSalesList())
+            {
+                foreach (Item I in S.Items)
+                {
+                    items.Add(new SaleItem(S, I));
+                }
+            }
+            dataGridViewReports.DataSource = items;
+        }
+
+
+
+
+
+        // Predication 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("It is estimated you will have " + Controller.GetController().Data.getSalesList().Count.ToString() + " sales tomorrow");
+        }
+
+
+
     }
+
 }
